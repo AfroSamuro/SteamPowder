@@ -1,0 +1,19 @@
+.homepage {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    color: #ddd;
+    padding: 40px 0;
+}
+
+.home__topGames__list {
+    list-style-type: none;
+    min-width: 830px;
+    background-color: #1f232e;
+    border-radius: 10px;
+}
+
+.home__aside__lists {
+    justify-content: center;
+    width: 100%;
+    padding-left: 100px;
+}

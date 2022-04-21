@@ -1,0 +1,10 @@
+body {
+    
+    background: linear-gradient( to bottom, rgb(41, 66, 85) 20%, rgba(6, 7, 8) 70%) no-repeat;
+    background-color: #050607;
+}
+
+a {
+    text-decoration: none;
+    color:#ddd;
+}

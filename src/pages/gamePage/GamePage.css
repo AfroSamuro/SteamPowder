@@ -1,0 +1,23 @@
+.game{
+    color: white;
+}
+
+.total__content {
+    display: flex;
+}
+
+.content-carusel {
+    width: 60%;
+}
+
+.screenshots {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.screenshots__screen {
+    max-height: 100px;
+    max-width: 200px;
+    padding: 0 6px;
+}

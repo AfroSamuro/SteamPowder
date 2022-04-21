@@ -1,0 +1,69 @@
+.top__list__game {
+    display: flex;
+    align-items: center;
+    background-color: #2131459c;
+    border-radius: 6px;
+    width: 98%;
+    margin: 10px auto;
+}
+
+.game__logo {
+    max-width: 300px;
+    max-height: 136px;
+}
+
+.game__content {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.game__text {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.game__title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.game__count {
+    font-size: 18px;
+    font-weight: 500;
+    color: #a3cf06;
+}
+
+.game__likeButton {
+    margin-top: 30px;
+    padding: 0 15px;
+    font-size: 18px;
+    line-height: 30px;
+    cursor: pointer;
+    background: transparent;
+    text-shadow: 1px 1px 0px rgb(0 0 0 / 30%);
+    border-radius: 2px;
+    border: none;
+    width: 80px;
+
+}
+
+.green {
+    color: #d2efa9;
+    background: linear-gradient(to right, #75b022 5%, #588a1b 95%);
+}
+
+.red {
+    color: #efa9a9;
+    background: linear-gradient(to right, #c61a1a 5%, #810303 95%);
+}
+
+.green:hover {
+    color: rgb(253, 253, 253);
+    background: linear-gradient(to right, #99e52f 5%, #6fac24 95%);
+}
+
+.red:hover {
+    color: rgb(251, 213, 213);
+    background: linear-gradient(to right, #db0000 5%, #c40000 95%);
+}

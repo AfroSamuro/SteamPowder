@@ -1,0 +1,30 @@
+.head {
+    background-color: #20242c;
+
+}
+
+.header {
+    display: flex;
+    color: #b8b6b4;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    height: 140px;
+}
+
+.header__search {
+    max-width: 200px;
+    background-color: #313132;
+    color: #b8b6b4;
+    border: none;
+    height: 24px;
+    border-radius: 8px;
+    padding-left: 10px;
+}
+
+.header__search::placeholder {
+    color: #767676;
+    padding-left: 10px;
+}

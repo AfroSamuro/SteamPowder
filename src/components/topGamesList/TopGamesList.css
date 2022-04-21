@@ -1,0 +1,25 @@
+
+.topGames__head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.head__title {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 50px;
+    padding-left: 22px;
+
+}
+
+.head__count {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 50px;
+    padding-right: 10px;
+}
+
+.topGames__list {
+    display: flex;
+    flex-direction: column;
+}
