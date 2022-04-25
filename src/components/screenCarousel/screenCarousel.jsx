@@ -1,17 +1,13 @@
 import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Navigation, Thumbs } from "swiper";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
 import "./screenCarousel.css";
-
-// import required modules
-import { FreeMode, Navigation, Thumbs } from "swiper";
 
 export default function Carousel() {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -29,6 +25,8 @@ export default function Carousel() {
                 thumbs={{ swiper: thumbsSwiper }}
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper2"
+                onSwiper={(swiper) => console.log(swiper)}
+                onSlideChange={() => console.log('slide change')}
             >
                 <SwiperSlide>
                     <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
@@ -62,7 +60,7 @@ export default function Carousel() {
                 </SwiperSlide>
             </Swiper>
             <Swiper
-                onSwiper={setThumbsSwiper}
+                // onSwiper={setThumbsSwiper}
                 loop={true}
                 spaceBetween={10}
                 slidesPerView={4}
@@ -71,7 +69,7 @@ export default function Carousel() {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper"
             >
-                <SwiperSlide>
+               <SwiperSlide>
                     <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
                 </SwiperSlide>
                 <SwiperSlide>
@@ -105,6 +103,7 @@ export default function Carousel() {
         </>
     );
 }
+
 
 
 {/* {props.screens.map(screen => <Slide index={screen.id}>{<img src={screen.path_thumbnail} alt='logo'></img>}</Slide>)} */ }

@@ -14,7 +14,7 @@ export default function GamePage() {
 
     const [gameData, setGameData] = useState(null);
     const [online, setOnline] = useState(null);
-    const [videos, setVideos] = useState(null)
+    const [videos, setVideos] = useState(null);
     const { game, id } = useParams();
 
     const getGameData = async () => {
@@ -37,7 +37,7 @@ export default function GamePage() {
 
     if (!gameData) return 'Загрузка...';
     if (!online) return 'Загрузка...';
-    if (!videos) return 'Загрузка...';
+    // if (!videos) return 'Загрузка...';
     if (!gameData[id].success) return null;
 
     const { player_count: count } = online.response
@@ -53,7 +53,7 @@ export default function GamePage() {
 
     } = gameData[id].data
 
-    console.log(gameData[id].data)
+    // console.log(gameData[id].data)
     // console.log(metacritic)
 
     // videos.map(data => console.log(data.items))
@@ -73,9 +73,9 @@ export default function GamePage() {
                             {/* <div className='screenshots'>
                             {screenshots.map(screen => <img id={screen.id} src={screen.path_thumbnail} alt='screen' className='screenshots__screen' />)}
                         </div> */}
-                            {/* <Carousel screens={screenshots} /> */}
+                            <Carousel />
                         </div>
-                        <div className='content__videos'>
+                        {/* <div className='content__videos'>
                             {videos.items.map(video => <a
                                 className='videos__content'
                                 href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
@@ -87,7 +87,7 @@ export default function GamePage() {
                                 </div>
                             </a>
                             )}
-                        </div>
+                        </div> */}
                     </div>
 
 
@@ -102,7 +102,7 @@ export default function GamePage() {
 
                             <div className='countRating__rating'>
                                 <img className='rating__logo' src="https://d23gn3985hkc32.cloudfront.net/wp-content/uploads/2020/12/597919-metacritic-review-bombing.jpg" alt="metaLogo" />
-                                <p className='rating__number'>{metacritic.score}</p>
+                                <p className='rating__number'>{metacritic ?  metacritic.score : "?" }</p>
                             </div>
                             <div className='countRating__count'>
                                 <p className='count__text'>Online:</p>

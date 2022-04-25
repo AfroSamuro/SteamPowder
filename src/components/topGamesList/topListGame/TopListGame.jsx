@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from 'react-router-dom'
 import SteamAPI from "../../../network/Steam.api";
 import './TopListGame.css'
@@ -6,6 +6,7 @@ import './TopListGame.css'
 export default function TopListGame(props) {
 
     const [meta, setMeta] = useState(null);
+    const [isHover, setIsHover] = useState(false);
 
     const { player_count } = props.rate.response
     const { name, appid } = props.game;
@@ -40,19 +41,46 @@ export default function TopListGame(props) {
 
     if (!meta) return 'Загрузка...';
     if (!meta[appid].success) return null;
-    // console.log(meta)
+    console.log(meta[appid].data)
 
     const { isLiked } = props;
 
     const { header_image: imageUrl, short_description: description } = meta[appid].data;
+    const { 480: video } = meta[appid].data.movies[0].webm;
+   
+
+    const gameImage = () => {
+        return <img src={imageUrl} alt="GameLogo" className="game__logo" />
+    };
+    const gameVideo = () => {
+        return <video src={video} className="game__video" muted loop />
+    };
+
+    const onOver = () => {
+        setIsHover(true);
+    }
+
+    const onOut = () => {
+        setIsHover(false);
+    }
+
+    // const media = useRef({gameImage});
+
+    // const showTrailer = () => {
+
+    // };
 
     return (
-        <li className="top__list__game">
-            <Link to={`/game/${appid}`}
+        <li className="top__list__game" onMouseEnter={onOver} onMouseLeave={onOut}>
+            <Link className={'game_preview'} to={`/${title}/${appid}`}
                 target='_blank'
                 onClick={() => watchedGame(appid)}
                 key={appid}>
-                <img src={imageUrl} alt="GameLogo" className="game__logo" />
+                {
+                    isHover 
+                    ? <video src={video} className="game__video" muted loop autoPlay/>
+                    : <img src={imageUrl} alt="GameLogo" className="game__logo" /> 
+                }
             </Link>
             <div className="game__content">
                 <div className="game__text">
@@ -61,8 +89,7 @@ export default function TopListGame(props) {
                         to={`/${title}/${appid}`}
                         target='_blank'
                         onClick={() => watchedGame(appid)}
-                        key={appid}
-                    >
+                        key={appid}>
                         {name}
                     </Link>
                     <p className="game__count">{player_count}</p>
