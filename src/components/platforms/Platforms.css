@@ -1,0 +1,28 @@
+.description__platfroms{
+    padding-top: 10px;
+    width: 74%;
+}
+
+.platforms__platfrom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.platform__name {
+    color: #61686D;
+    font-size: 14px;
+    padding: 4px;
+}
+
+.platform__sup {
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+.supported {
+color: rgb(17, 196, 17);
+}
+
+.notSupported {
+color: rgb(213, 26, 26);
+}

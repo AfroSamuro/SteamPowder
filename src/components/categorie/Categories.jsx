@@ -1,14 +1,14 @@
-
+import './Categories.css'
 
 export default function Categories(props) {
 
 
     return (
-        <div>
+        <div className='description__categories'>
             {props.categories.map(categorie =>
-                <span>
+                <div className='categories__name'>
                     {categorie.description}
-                </span>)}
+                </div>)}
         </div>
     )
 }
