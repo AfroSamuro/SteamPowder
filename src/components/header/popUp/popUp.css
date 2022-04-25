@@ -1,0 +1,32 @@
+.popUp__box {
+    position: absolute;
+    flex-direction: column;
+    background-color: #333335;
+    left: 450px;
+    top: 88px;
+    padding: 8px;
+    border-radius: 8px;
+    width: 300px;
+    max-height: 168px;
+    overflow-y: auto;
+}
+
+.popUp__noMatches {
+    border-top: 2px solid rgb(11, 12, 15);
+    padding: 6px 26px 6px 6px;
+    font-size: 18px;
+}
+
+.popUp__game {
+    border-top: 2px solid rgb(11, 12, 15);
+    padding: 6px 26px 6px 6px;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.popUp__game:hover {
+    background-color: rgb(67, 80, 96);
+}

@@ -60,8 +60,8 @@ export default function GamePage() {
 
 
     return (
-        <Adaptive className='game' style={{ backgroundImage: `url(${background})` }} tagname={'section'}>
-            <div className='game__total'>
+        <Adaptive className='game'  tagname={'section'} >
+            <div className='game__total' style={{ backgroundImage: `url(${background})` }}>
                 <div className='total-title'>
                     {name}
                 </div>
@@ -71,7 +71,7 @@ export default function GamePage() {
                         {/* <div className='screenshots'>
                             {screenshots.map(screen => <img id={screen.id} src={screen.path_thumbnail} alt='screen' className='screenshots__screen' />)}
                         </div> */}
-                        <Carousel screens={screenshots}/>
+                        <Carousel screens={screenshots} />
                     </div>
 
                     <div className='content-description'>
@@ -85,8 +85,8 @@ export default function GamePage() {
                         <Platforms platforms={platforms} />
                     </div>
 
-
                     <div className='content-video__reviews'>
+
                     </div>
                 </div>
             </div>

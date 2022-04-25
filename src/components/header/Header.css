@@ -1,13 +1,13 @@
 .head {
     background-color: #20242c;
-
 }
 
 .header {
     display: flex;
     color: #b8b6b4;
-    justify-content: space-between;
+    /* justify-content:space-around; */
     align-items: center;
+    padding-left: 140px;
 }
 
 .header__logo {

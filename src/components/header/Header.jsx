@@ -2,25 +2,46 @@ import './Header.css'
 import logo from '../../images/logo_transparent.png'
 import Adaptive from '../adaptive/Adaptive'
 import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import PopUp from './popUp/popUp';
 
-export default function Header() {
+export default function Header(props) {
+
+    const { topGames } = props;
+    // console.log(topGames)
+
+    const [searchResult, setSearchResult] = useState([]);
+    const [isEmpty, setIsEmpty] = useState(false);
+
+
+
+    const searchGame = (e) => {
+        setIsEmpty(!!e.target.value.trim())
+        setSearchResult(e.target.value.trim() ? topGames.filter(item => item.game.name.toLowerCase().includes(e.target.value.toLowerCase())) : [])
+    };
+
 
     return (
         <header className='head'>
             <Adaptive className='header'>
+
                 <Link to={'/'} target='_self'>
 
                     <img src={logo} alt="logo" className="header__logo" />
                 </Link>
 
-                <label >
-                    <input className="header__search" placeholder="Search" />
-                </label>
+                <div>
+                    <label className='header__label'>
+                        <input className="header__search" placeholder="Search" onChange={searchGame} />
+                    </label>
+
+                    <PopUp result={searchResult} isEmpty={isEmpty} />
+
+                </div>
+
+
             </Adaptive>
         </header>
     )
 }
 
-// Доброго времени суток. Меня зовут Владислав. Меня крайне заинтересовала ваша вакансия на позицию Джуниор Фронтэнд разраб.
-// Пусть у меня нет комерческого опыта, но я готов применить свои навыки разработки вэб приложений, использующие стеки реакт и редакс,
-// изучать и применять новые решения.

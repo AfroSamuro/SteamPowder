@@ -4,6 +4,9 @@ import Header from "./components/header/Header";
 import HomePage from "./pages/homePage/HomePage";
 import GamePage from './pages/gamePage/GamePage';
 
+import { useEffect, useState } from "react"
+
+
 import './reset.css';
 
 
@@ -11,15 +14,23 @@ import './reset.css';
 
 export default function App() {
 
+    const [topGames, setTopGames] = useState([]);
 
+    useEffect(() => {
+        getTopGames()
+    }, []);
+
+    const getTopGames = async () => {
+        setTopGames(await SteamAPI.getTopGames())
+    };
 
     return (
         <>
             <BrowserRouter>
-            <Header />
+                <Header topGames={topGames}/>
                 <Routes>
-                    <Route path="/" element={<HomePage />}/>
-                    <Route path ='/:game/:id' element={<GamePage />} />
+                    <Route path="/" element={<HomePage topGames={topGames}/>} />
+                    <Route path='/:game/:id' element={<GamePage />} />
                 </Routes>
             </BrowserRouter>
         </>

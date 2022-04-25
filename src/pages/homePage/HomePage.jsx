@@ -6,20 +6,22 @@ import TopGamesList from "../../components/topGamesList/TopGamesList";
 import SteamAPI from "../../network/Steam.api"
 import './HomePage.css'
 
-export default function HomePage() {
+export default function HomePage(props) {
 
-    const [topGames, setTopGames] = useState([]);
+    // const [topGames, setTopGames] = useState([]);
     const [likedGames, setLikedGames] = useState([]);
     const [recentGames, setRecentGames] = useState(new Set());
 
+    const {topGames} = props
 
-    useEffect(() => {
-        getTopGames()
-    }, []);
+//     useEffect(() => {
+//         getTopGames()
+//     }, []);
 
-    const getTopGames = async () => {
-        setTopGames(await SteamAPI.getTopGames())
-    };
+//     const getTopGames = async () => {
+//         setTopGames(await SteamAPI.getTopGames())
+//     };
+
     // console.log(topGames[0])
 
     const handleLike = (id) => {
@@ -32,7 +34,6 @@ export default function HomePage() {
 
     const watchedGame = (id) => {
         setRecentGames(new Set([...recentGames, topGames.find(el => el.game.appid === id)]))
-
     };
 
     // console.log(recentGames)
