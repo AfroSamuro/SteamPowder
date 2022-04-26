@@ -1,66 +1,44 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs } from "swiper";
+import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper";
 
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
+import "swiper/css/autoplay";
 
 import "./screenCarousel.css";
 
-export default function Carousel() {
+export default function Carousel(props) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
     return (
         <>
             <Swiper
                 style={{
-                    "--swiper-navigation-color": "#fff",
-                    "--swiper-pagination-color": "#fff",
+                    "--swiper-navigation-color": "#9fa1ab",
+                    "--swiper-pagination-color": "#9fa1ab",
                 }}
                 loop={true}
                 spaceBetween={10}
                 navigation={true}
                 thumbs={{ swiper: thumbsSwiper }}
-                modules={[FreeMode, Navigation, Thumbs]}
+                modules={[FreeMode, Navigation, Thumbs, Autoplay]}
                 className="mySwiper2"
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={() => console.log('slide change')}
+                autoplay={{
+                    delay: 2500,
+                    pauseOnMouseEnter: true,
+                    disableOnInteraction: false,
+                  }}
             >
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-                </SwiperSlide>
+                {props.screens.map(screen =>
+                    <SwiperSlide index={screen.id}>
+                        {<img src={screen.path_thumbnail} alt='logo'></img>}
+                    </SwiperSlide>)}
             </Swiper>
             <Swiper
-                // onSwiper={setThumbsSwiper}
+                onSwiper={setThumbsSwiper}
                 loop={true}
                 spaceBetween={10}
                 slidesPerView={4}
@@ -69,41 +47,13 @@ export default function Carousel() {
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper"
             >
-               <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
-                </SwiperSlide>
+                {props.screens.map(screen =>
+                    <SwiperSlide index={screen.id}>
+                        {<img src={screen.path_thumbnail} alt='logo'></img>}
+                    </SwiperSlide>)}
             </Swiper>
         </>
     );
 }
 
 
-
-{/* {props.screens.map(screen => <Slide index={screen.id}>{<img src={screen.path_thumbnail} alt='logo'></img>}</Slide>)} */ }

@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import SteamAPI from "../../../network/Steam.api";
 import './TopListGame.css'
 
+import 'react-loading-skeleton/dist/skeleton.css'
+import TopGameSkeleton from "../../skeletons/TopGameSkeleton";
+
 export default function TopListGame(props) {
 
     const [meta, setMeta] = useState(null);
@@ -38,16 +41,16 @@ export default function TopListGame(props) {
 
     // console.log(props.like)
 
-
-    if (!meta) return 'Загрузка...';
+    // return <TopGameSkeleton />
+    if (!meta) return <TopGameSkeleton />;
     if (!meta[appid].success) return null;
-    console.log(meta[appid].data)
+    // console.log(meta)
 
     const { isLiked } = props;
 
     const { header_image: imageUrl, short_description: description } = meta[appid].data;
     const { 480: video } = meta[appid].data.movies[0].webm;
-   
+
 
     const gameImage = () => {
         return <img src={imageUrl} alt="GameLogo" className="game__logo" />
@@ -72,16 +75,17 @@ export default function TopListGame(props) {
 
     return (
         <li className="top__list__game" onMouseEnter={onOver} onMouseLeave={onOut}>
-            <Link className={'game_preview'} to={`/${title}/${appid}`}
-                target='_blank'
-                onClick={() => watchedGame(appid)}
-                key={appid}>
-                {
-                    isHover 
-                    ? <video src={video} className="game__video" muted loop autoPlay/>
-                    : <img src={imageUrl} alt="GameLogo" className="game__logo" /> 
-                }
-            </Link>
+            {/* {meta === null ? <Skeleton /> : */}
+                <Link className={'game_preview'} to={`/${title}/${appid}`}
+                    target='_blank'
+                    onClick={() => watchedGame(appid)}
+                    key={appid}>
+                    {
+                        isHover
+                            ? <video src={video} className="game__video" muted loop autoPlay />
+                            : <img src={imageUrl} alt="GameLogo" className="game__logo" />
+                    }
+                </Link>
             <div className="game__content">
                 <div className="game__text">
                     <Link

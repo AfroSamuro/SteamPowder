@@ -3,7 +3,7 @@ import './LikedGamesList.css'
 
 export default function LikedGamesList(props) {
 
-    const {games, watched} = props
+    const { games, watched } = props
 
     return (
         <div className="liked__games">
@@ -12,10 +12,14 @@ export default function LikedGamesList(props) {
             </header>
             <ul className="liked__list">
                 {
-                    games.length 
-                        ? games.map(game => <LikedGame game={game} watched={watched}/>)
+                    games.length
+                        ? games.map(game => <LikedGame game={game} watched={watched} />)
                         : <p>List is empty</p>
                 }
+                {/* {games.length > 3 ?
+                    <p {...addEventListener('click', () => {console.log('lol')})}>Show more...</p> :
+                    false
+                } */}
             </ul>
         </div>
 

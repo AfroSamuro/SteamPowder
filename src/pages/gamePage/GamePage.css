@@ -1,3 +1,13 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 .gamePage {
     font-family: 'Roboto', sans-serif;
     color: #ddd;
@@ -11,8 +21,13 @@
 .total__title {
     font-size: 26px;
     line-height: 32px;
+    font-weight: 500;
     color: white;
-    padding: 10px 0 14px 20px;
+    padding: 10px 0 14px 40px;
+}
+
+.title__name {
+    animation: fadeIn 1.3s;
 }
 
 .content__media {
@@ -21,15 +36,19 @@
     width: 70%;
 }
 
-.content__carusel {}
+.carousel__swiper {
+    animation: fadeIn 1.3s;
+}
 
 .content__videos {
     display: flex;
+    padding-top: 8px;
 }
 
 .videos__content {
     width: 33%;
     padding-left: 10px;
+    animation: fadeIn 1.6s;
 }
 
 .videos__img {
@@ -108,4 +127,12 @@
     color: #66CC33;
     font-size: 25px;
     padding-top: 6px;
+}
+
+.description__categories {
+    padding-top: 4px;
+}
+
+.description__platforms {
+    padding-top: 10px;
 }
