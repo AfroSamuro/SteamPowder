@@ -19,11 +19,15 @@
 }
 
 .total__title {
-    font-size: 26px;
+    font-size: 36px;
     line-height: 32px;
     font-weight: 500;
     color: white;
-    padding: 10px 0 14px 40px;
+    padding: 22px 0 30px 0;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    line-height: 116%;
+    max-width: 70%;
 }
 
 .title__name {
@@ -33,7 +37,7 @@
 .content__media {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 68%;
 }
 
 .carousel__swiper {
@@ -42,18 +46,22 @@
 
 .content__videos {
     display: flex;
-    padding-top: 8px;
+    padding-top: 30px;
+    justify-content: space-between;
 }
 
 .videos__content {
-    width: 33%;
-    padding-left: 10px;
+    width: 31%;
     animation: fadeIn 1.6s;
 }
 
 .videos__img {
     width: 100%;
     height: 130px;
+}
+
+.videos__desc {
+    padding-left: 10px;
 }
 
 .desc__title {
@@ -70,6 +78,7 @@
 
 .content__description {
     width: 324px;
+    /* margin-left: 30px; */
 }
 
 .description__img {

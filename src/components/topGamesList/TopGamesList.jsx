@@ -3,7 +3,9 @@ import './TopGamesList.css'
 
 
 export default function TopGamesList(props) {
+
     const { games, like, unlike, isLiked, watched } = props;
+    
     return (
         <>
             <header className="topGames__head">

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper";
 
+
+
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -9,6 +11,10 @@ import "swiper/css/thumbs";
 import "swiper/css/autoplay";
 
 import "./screenCarousel.css";
+
+
+
+
 
 export default function Carousel(props) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);

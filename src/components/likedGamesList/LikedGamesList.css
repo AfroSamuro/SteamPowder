@@ -20,3 +20,15 @@
     font-size: 18px;
     padding-bottom: 6px;
 }
+
+.list__showMore {
+    padding-top: 10px;
+    font-weight: 800;
+    font-size: 14px;
+    color: rgb(80, 103, 122);
+    cursor: pointer;
+}
+
+.list__showMore:hover {
+    color: #ddd
+}

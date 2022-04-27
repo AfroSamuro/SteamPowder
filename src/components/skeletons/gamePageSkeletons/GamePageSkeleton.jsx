@@ -9,16 +9,17 @@ export default function GamePageSkeleton() {
             <SkeletonTheme baseColor="#232e3d" highlightColor="#1c2636">
                 <div className='game__total' /*style={{ backgroundImage: `url(${background})` }}*/>
                     <div className='total__title'>
-                        <Skeleton width={300} height={26} />
+                        <Skeleton width={'70%'} height={32} />
                     </div>
 
                     <div className='total__content'>
                         <div className='content__media'>
-                            <div className='content__carusel'>
-                                <Skeleton height={556} />
+                            <div className='content__carusel' style={{height: 550, display:'flex', flexDirection:'column', justifyContent:'space-between'}}>
+                                <Skeleton height={436} />
+                                <Skeleton height={104} />
                             </div>
                             <div className='content__videos'>
-                                <Skeleton height={156} width={798}/>
+                                <Skeleton height={156} width={776}/>
                             </div>
                         </div>
 
@@ -46,10 +47,10 @@ export default function GamePageSkeleton() {
                                 </div>
                             </div>
                             <div className="description__categories">
-                                <Skeleton height={340} width={260} />
+                                <Skeleton height={340} />
                             </div>
                             <div className="description__platforms">
-                                <Skeleton height={76} width={240} />
+                                <Skeleton height={76} />
                             </div>
                             {/* <Categorie categories={categories} />
                         <Platforms platforms={platforms} /> */}

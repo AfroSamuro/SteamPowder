@@ -3,26 +3,14 @@ import Adaptive from "../../components/adaptive/Adaptive";
 import LikedGamesList from "../../components/likedGamesList/LikedGamesList";
 import RecentGamesList from "../../components/recentGamesList/RecentGamesList";
 import TopGamesList from "../../components/topGamesList/TopGamesList";
-import SteamAPI from "../../network/Steam.api"
 import './HomePage.css'
 
 export default function HomePage(props) {
 
-    // const [topGames, setTopGames] = useState([]);
     const [likedGames, setLikedGames] = useState([]);
     const [recentGames, setRecentGames] = useState(new Set());
 
     const {topGames} = props
-
-//     useEffect(() => {
-//         getTopGames()
-//     }, []);
-
-//     const getTopGames = async () => {
-//         setTopGames(await SteamAPI.getTopGames())
-//     };
-
-    // console.log(topGames[0])
 
     const handleLike = (id) => {
         setLikedGames([...likedGames, topGames.find(el => el.game.appid === id)])

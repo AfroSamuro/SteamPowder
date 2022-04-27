@@ -4,11 +4,8 @@ import Adaptive from "../../components/adaptive/Adaptive";
 import Categorie from '../../components/categorie/Categories';
 import Platforms from '../../components/platforms/Platfroms';
 import Carousel from '../../components/screenCarousel/screenCarousel';
-import "swiper/css/bundle";
 import SteamAPI from "../../network/Steam.api"
 import YoutubeAPI from '../../network/Youtube.api';
-
-import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import './GamePage.css'
@@ -18,7 +15,7 @@ export default function GamePage() {
 
     const [gameData, setGameData] = useState(null);
     const [online, setOnline] = useState(null);
-    const [videos, setVideos] = useState(null);
+    const [videos, setVideos] = useState([])
     const { game, id } = useParams();
 
     const getGameData = async () => {
@@ -36,12 +33,12 @@ export default function GamePage() {
     useEffect(() => {
         getGameData();
         getOnline();
-        getVideos()
+        // getVideos()
     }, []);
 
     // return <GamePageSkeleton />
 
-    if (!gameData || !online || !videos) return <GamePageSkeleton />;
+    if (!gameData || !online ) return <GamePageSkeleton />;
     if (!gameData[id].success) return null;
 
     const { player_count: count } = online.response
@@ -79,7 +76,7 @@ export default function GamePage() {
                             </div>
                         </div>
                         <div className='content__videos'>
-                            {videos.items.map(video => <a
+                            {/* {videos.items.map(video => <a
                                 className='videos__content'
                                 href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
                                 target='_blank'>
@@ -89,7 +86,7 @@ export default function GamePage() {
                                     <p className='desc__channel'>{video.snippet.channelTitle}</p>
                                 </div>
                             </a>
-                            )}
+                            )} */}
                         </div>
                     </div>
 
