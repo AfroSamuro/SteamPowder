@@ -28,3 +28,12 @@
     color: #767676;
     padding-left: 10px;
 }
+
+.search__container {
+    position: relative;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+

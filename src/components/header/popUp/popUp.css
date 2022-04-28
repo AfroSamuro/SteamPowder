@@ -1,26 +1,27 @@
 .popUp__box {
     position: absolute;
     flex-direction: column;
-    background-color: #333335;
-    left: 450px;
-    top: 88px;
-    padding: 8px;
+    background-color: #363946;
+    top: 30px;
+    left: 50px;
+    padding: 8px 0;
     border-radius: 8px;
     width: 300px;
-    max-height: 168px;
+    max-height: 164px;
     overflow-y: auto;
-}
+    z-index: 2;
+    font-size: 18px;
+    box-shadow: 14px 14px 20px rgb(25, 36, 40);}
 
 .popUp__noMatches {
-    border-top: 2px solid rgb(11, 12, 15);
-    padding: 6px 26px 6px 6px;
-    font-size: 18px;
+    /* border-top: 2px solid rgb(11, 12, 15); */
+    padding: 10px 24px 10px 16px;
+    font-weight: 500;
 }
 
 .popUp__game {
-    border-top: 2px solid rgb(11, 12, 15);
-    padding: 6px 26px 6px 6px;
-    font-size: 18px;
+    padding: 10px 16px 10px 20px;
+    font-weight: 500;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -28,5 +29,6 @@
 }
 
 .popUp__game:hover {
-    background-color: rgb(67, 80, 96);
+    background-color: rgb(76, 91, 109);
 }
+

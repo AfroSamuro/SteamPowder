@@ -8,10 +8,6 @@
     }
 }
 
-.gamePage {
-    font-family: 'Roboto', sans-serif;
-    color: #ddd;
-}
 
 .total__content {
     display: flex;
@@ -79,6 +75,8 @@
 .content__description {
     width: 324px;
     /* margin-left: 30px; */
+    animation: fadeIn 1s;
+
 }
 
 .description__img {

@@ -1,12 +1,13 @@
+import { forwardRef } from 'react'
 import { Link } from 'react-router-dom'
 import './popUp.css'
 
-export default function PopUp(props) {
+function PopUp(props, ref) {
 
     const { result, isEmpty } = props
 
     return (
-        <ul className="popUp__box" style={isEmpty ? { display: 'flex' } : { display: 'none' }}>
+        <ul className="popUp__box" style={isEmpty ? { display: 'flex' } : { display: 'none' }} ref={ref}>
             {isEmpty && result.length === 0 ?
                 <p className="popUp__noMatches">
                     Совпадений не найдено
@@ -26,3 +27,5 @@ export default function PopUp(props) {
         </ul>
     )
 }
+
+export default forwardRef(PopUp)

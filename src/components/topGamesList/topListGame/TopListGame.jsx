@@ -8,8 +8,10 @@ import TopGameSkeleton from "../../skeletons/TopGameSkeleton";
 
 export default function TopListGame(props) {
 
+
     const [meta, setMeta] = useState(null);
     const [isHover, setIsHover] = useState(false);
+    // const [isVideo, setIsVideo] = useState(true)
 
     const { player_count } = props.rate.response
     const { name, appid } = props.game;
@@ -49,14 +51,13 @@ export default function TopListGame(props) {
     const { isLiked } = props;
 
     const { header_image: imageUrl, short_description: description } = meta[appid].data;
-    const { 480: video } = meta[appid].data.movies[0].webm;
 
-
-    const gameImage = () => {
-        return <img src={imageUrl} alt="GameLogo" className="game__logo" />
-    };
-    const gameVideo = () => {
-        return <video src={video} className="game__video" muted loop />
+    const check = () => {
+        if (meta[appid].data.movies) {
+            return meta[appid].data.movies[0].webm[480];
+        } else {
+            return false
+        }
     };
 
     const onOver = () => {
@@ -67,26 +68,23 @@ export default function TopListGame(props) {
         setIsHover(false);
     }
 
-    // const media = useRef({gameImage});
-
-    // const showTrailer = () => {
-
-    // };
-
     return (
         <li className="top__list__game" onMouseEnter={onOver} onMouseLeave={onOut}>
-            {/* {meta === null ? <Skeleton /> : */}
-                <Link className={'game_preview'} to={`/${title}/${appid}`}
-                    target='_blank'
-                    onClick={() => watchedGame(appid)}
-                    key={appid}>
-                    {
-                        isHover
-                            ? <video src={video} className="game__video" muted loop autoPlay />
+            <Link className={'game_preview'} to={`/${title}/${appid}`}
+                target='_blank'
+                onClick={() => watchedGame(appid)}
+                key={appid}>
+                {
+                    isHover
+                        ? check()
+                            ? <video src={meta[appid].data.movies[0].webm[480]} className="game__video" muted loop autoPlay />
                             : <img src={imageUrl} alt="GameLogo" className="game__logo" />
-                    }
-                </Link>
+                        : <img src={imageUrl} alt="GameLogo" className="game__logo" />
+                }
+            </Link>
+
             <div className="game__content">
+
                 <div className="game__text">
                     <Link
                         className="game__title"
@@ -96,13 +94,16 @@ export default function TopListGame(props) {
                         key={appid}>
                         {name}
                     </Link>
+
                     <p className="game__count">{player_count}</p>
                 </div>
+
                 <button
                     className={`game__likeButton ${isLiked ? 'red' : 'green'}`}
                     onClick={isLiked ? () => unlike(appid) : () => like(appid)}>
                     {isLiked ? 'Unlike' : 'Like'}
                 </button>
+
             </div>
         </li>
     )

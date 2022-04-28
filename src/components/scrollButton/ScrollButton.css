@@ -1,0 +1,14 @@
+.scrollTop {
+    position: fixed;
+    left: 74%;
+    bottom: 180px;
+    font-size: 300%;
+    z-index: 1;
+    cursor: pointer;
+    color: rgb(49, 82, 91);
+}
+
+.scrollTop:hover {
+    color: rgb(70, 124, 139);
+
+}

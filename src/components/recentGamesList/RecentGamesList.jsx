@@ -11,7 +11,7 @@ export default function RecentGamesList(props) {
     const showAll = () => {
         setIsHidden(!isHidden)
     };
-console.log(games)
+    // console.log(games)
     return (
         <div className='recent__games'>
             <header className="recent__head">

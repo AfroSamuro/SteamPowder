@@ -6,15 +6,12 @@ import GamePage from './pages/gamePage/GamePage';
 
 import { useEffect, useState } from "react"
 
-
 import './reset.css';
-
-
-// SteamAPI.getTopGames().then(data => console.log(data))
 
 export default function App() {
 
     const [topGames, setTopGames] = useState([]);
+
 
     useEffect(() => {
         getTopGames()
@@ -23,6 +20,8 @@ export default function App() {
     const getTopGames = async () => {
         setTopGames(await SteamAPI.getTopGames())
     };
+
+    
 
     return (
         <>

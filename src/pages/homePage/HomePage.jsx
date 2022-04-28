@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Adaptive from "../../components/adaptive/Adaptive";
 import LikedGamesList from "../../components/likedGamesList/LikedGamesList";
 import RecentGamesList from "../../components/recentGamesList/RecentGamesList";
+import { ScrollButton } from "../../components/scrollButton/ScrollButton";
 import TopGamesList from "../../components/topGamesList/TopGamesList";
 import './HomePage.css'
 
@@ -40,6 +41,7 @@ export default function HomePage(props) {
             <aside className="home__aside__lists">
                 <LikedGamesList games={likedGames} isEmpty={likedGames.length === 0} watched={watchedGame}/>
                 <RecentGamesList games={recentGames} isEmpty={recentGames.size === 0} />
+                <ScrollButton />
             </aside>
         </Adaptive>
     )
