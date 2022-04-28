@@ -4,7 +4,9 @@ import LikedGamesList from "../../components/likedGamesList/LikedGamesList";
 import RecentGamesList from "../../components/recentGamesList/RecentGamesList";
 import { ScrollButton } from "../../components/scrollButton/ScrollButton";
 import TopGamesList from "../../components/topGamesList/TopGamesList";
-import './HomePage.css'
+import './HomePage.css';
+
+
 
 export default function HomePage(props) {
 

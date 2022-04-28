@@ -10,12 +10,14 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 import './GamePage.css'
 import GamePageSkeleton from '../../components/skeletons/gamePageSkeletons/GamePageSkeleton';
+// import VkAPI from '../../network/Vk.api';
 
 export default function GamePage() {
 
     const [gameData, setGameData] = useState(null);
     const [online, setOnline] = useState(null);
-    const [videos, setVideos] = useState([])
+    const [videos, setVideos] = useState([]);
+    const [groups, setGroups] = useState([])
     const { game, id } = useParams();
 
     const getGameData = async () => {
@@ -29,16 +31,21 @@ export default function GamePage() {
     const getVideos = async () => {
         setVideos(await YoutubeAPI.getYoutubeVideos(game))
     }
+    const getGroups = async () => {
+        setGroups(await SteamAPI.getVkGroups(game))
+    }
 
     useEffect(() => {
         getGameData();
         getOnline();
-        // getVideos()
+        getVideos()
+        getGroups()
     }, []);
+
 
     // return <GamePageSkeleton />
 
-    if (!gameData || !online ) return <GamePageSkeleton />;
+    if (!gameData || !online || !groups.response) return <GamePageSkeleton />;
     if (!gameData[id].success) return null;
 
     const { player_count: count } = online.response
@@ -52,31 +59,33 @@ export default function GamePage() {
         metacritic,
         platforms,
 
-    } = gameData[id].data
+    } = gameData[id].data;
+    const { items: vkGroups } = groups.response
 
     // console.log(gameData[id].data)
     // console.log(metacritic)
 
     // videos.map(data => console.log(data.items))
     // console.log(videos.items)
+    console.log(vkGroups)
 
 
     return (
         <Adaptive className='gamePage' tagname={'section'} >
             <div className='game__total' /*style={{ backgroundImage: `url(${background})` }}*/>
                 <div className='total__title'>
-                   <p className='title__name'>{name}</p> 
+                    <p className='title__name'>{name}</p>
                 </div>
 
                 <div className='total__content'>
                     <div className='content__media'>
                         <div className='content__carousel'>
                             <div className='carousel__swiper'>
-                               <Carousel screens={screenshots} /> 
+                                <Carousel screens={screenshots} />
                             </div>
                         </div>
                         <div className='content__videos'>
-                            {/* {videos.items.map(video => <a
+                            {videos.items.map(video => <a
                                 className='videos__content'
                                 href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
                                 target='_blank'>
@@ -86,7 +95,19 @@ export default function GamePage() {
                                     <p className='desc__channel'>{video.snippet.channelTitle}</p>
                                 </div>
                             </a>
-                            )} */}
+                            )}
+                        </div>
+                        <div className='content__vkGroups'>
+                            {vkGroups.map(group => <a
+                                className='vkGroups__group'
+                                href={`https://vk.com/${group.screen_name}`}
+                                target='_blank'>
+                                <img className='group__img' src={group.photo_100} alt='vk__group' />
+                                <div className='group__desc'>
+                                    <p className='desc__title'>{group.name}</p>
+                                </div>
+                            </a>
+                            )}
                         </div>
                     </div>
 

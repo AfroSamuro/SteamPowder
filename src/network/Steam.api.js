@@ -40,4 +40,8 @@ export default class SteamAPI {
         return await res.json()
     }
 
+    static async getVkGroups(name) {
+        return await this.fetchFromSteam(`https://api.vk.com/method/groups.search?q=${name}&count=6&sort=6&access_token=fe9ec25ab9884a78bfd4d44f4de1b6aca1afa65170cd88f39e3cd1780ad49204f2d36b3412030b0eb8ec5&v=5.131`);
+    }
+
 }

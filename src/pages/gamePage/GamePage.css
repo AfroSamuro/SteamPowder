@@ -72,6 +72,35 @@
     padding-top: 8px;
 }
 
+.content__vkGroups {
+    display: flex;
+    padding-top: 30px;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+}
+
+.vkGroups__group {
+    width: 31%;
+    animation: fadeIn 1.6s;
+    display: flex;
+    margin:16px 18px 0 0 ;
+
+}
+
+.group__img {
+    height: 100px;
+}
+
+.group__desc {
+display: flex;
+align-items: center;
+padding-left: 10px;
+}
+
+.desc__title {
+
+}
+
 .content__description {
     width: 324px;
     /* margin-left: 30px; */
