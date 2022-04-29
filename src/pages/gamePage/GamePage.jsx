@@ -38,7 +38,7 @@ export default function GamePage() {
     useEffect(() => {
         getGameData();
         getOnline();
-        getVideos()
+        // getVideos()
         getGroups()
     }, []);
 
@@ -89,7 +89,7 @@ export default function GamePage() {
                                 <p>REVIEWS:</p>
                             </div>
                             <div className='content__videos'>
-                                {videos.items.map(video => <a
+                                {/* {videos.items.map(video => <a
                                 className='videos__content'
                                 href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
                                 target='_blank'>
@@ -99,12 +99,12 @@ export default function GamePage() {
                                     <p className='desc__channel'>{video.snippet.channelTitle}</p>
                                 </div>
                             </a>
-                            )}
+                            )} */}
                             </div>
                         </div>
                         <div className='content__socialMedia'>
                             <div className='content__social'>
-                                <p>SOCIAL GROUPS:</p>
+                                <p>COMMUNITY:</p>
                             </div>
                             <div className='content__vkGroups'>
                                 {vkGroups.map(group => <a
@@ -114,6 +114,7 @@ export default function GamePage() {
                                     <img className='group__img' src={group.photo_100} alt='vk__group' />
                                     <div className='group__desc'>
                                         <p className='desc__title'>{group.name}</p>
+                                        <p className='desc__platform'>VK</p>
                                     </div>
                                 </a>
                                 )}
