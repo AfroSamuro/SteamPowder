@@ -10,6 +10,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 import './GamePage.css'
 import GamePageSkeleton from '../../components/skeletons/gamePageSkeletons/GamePageSkeleton';
+import Skeleton from 'react-loading-skeleton';
 // import VkAPI from '../../network/Vk.api';
 
 export default function GamePage() {
@@ -84,12 +85,12 @@ export default function GamePage() {
                                 <Carousel screens={screenshots} />
                             </div>
                         </div>
-                        <div className='content__youtube'>
+                        {videos.items ? <div className='content__youtube'>
                             <div className='content__youtubeHeader'>
                                 <p>REVIEWS:</p>
                             </div>
                             <div className='content__videos'>
-                                {videos.items ? videos.items.map(video => <a
+                                {videos.items.map(video => <a
                                     className='videos__content'
                                     href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
                                     target='_blank'>
@@ -99,9 +100,10 @@ export default function GamePage() {
                                         <p className='desc__channel'>{video.snippet.channelTitle}</p>
                                     </div>
                                 </a>
-                                ) : false}
+                                )}
                             </div>
-                        </div>
+                        </div> : <Skeleton height={190} width={776} className='content__youtube__skeleton'/>}
+                        
                         <div className='content__socialMedia'>
                             <div className='content__social'>
                                 <p>COMMUNITY:</p>

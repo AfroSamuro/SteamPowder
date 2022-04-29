@@ -48,6 +48,12 @@
     margin-top: 20px;
 }
 
+.content__youtube__skeleton {
+    margin-top: 20px;
+    animation: fadeIn 1.6s;
+
+}
+
 .content__youtubeHeader {
     padding-top: 12px;
     font-size: 20px;
