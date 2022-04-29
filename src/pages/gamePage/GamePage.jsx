@@ -67,7 +67,7 @@ export default function GamePage() {
 
     // videos.map(data => console.log(data.items))
     // console.log(videos.items)
-    console.log(vkGroups)
+    // console.log(vkGroups)
 
 
     return (
@@ -89,17 +89,17 @@ export default function GamePage() {
                                 <p>REVIEWS:</p>
                             </div>
                             <div className='content__videos'>
-                                {/* {videos.items.map(video => <a
-                                className='videos__content'
-                                href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
-                                target='_blank'>
-                                <img className='videos__img' src={video.snippet.thumbnails.medium.url} alt='content_logo' />
-                                <div className='videos__desc'>
-                                    <p className='desc__title'>{video.snippet.title}</p>
-                                    <p className='desc__channel'>{video.snippet.channelTitle}</p>
-                                </div>
-                            </a>
-                            )} */}
+                                {videos.items ? videos.items.map(video => <a
+                                    className='videos__content'
+                                    href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
+                                    target='_blank'>
+                                    <img className='videos__img' src={video.snippet.thumbnails.medium.url} alt='content_logo' />
+                                    <div className='videos__desc'>
+                                        <p className='desc__title'>{video.snippet.title}</p>
+                                        <p className='desc__channel'>{video.snippet.channelTitle}</p>
+                                    </div>
+                                </a>
+                                ) : false}
                             </div>
                         </div>
                         <div className='content__socialMedia'>

@@ -44,6 +44,8 @@
     background-color: #2f343a6e;
     padding: 10px;
     border-radius: 2px;
+    min-height: 190px;
+    margin-top: 20px;
 }
 
 .content__youtubeHeader {
