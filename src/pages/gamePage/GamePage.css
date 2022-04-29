@@ -40,6 +40,20 @@
     animation: fadeIn 1.3s;
 }
 
+.content__youtube {
+    background-color: #2f343a6e;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.content__youtubeHeader {
+    padding-top: 12px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #66bee8;
+}
+
 .content__videos {
     display: flex;
     padding-top: 30px;
@@ -72,9 +86,24 @@
     padding-top: 8px;
 }
 
+.content__socialMedia {
+    margin-top: 16px;
+    background-color: #2f343a6e;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.content__social {
+    padding-top: 12px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #66bee8;
+}
+
 .content__vkGroups {
     display: flex;
-    padding-top: 30px;
+    padding-top: 10px;
     /* justify-content: space-between; */
     flex-wrap: wrap;
 }
@@ -83,7 +112,7 @@
     width: 31%;
     animation: fadeIn 1.6s;
     display: flex;
-    margin:16px 18px 0 0 ;
+    margin: 16px 16px 0 0;
 
 }
 
@@ -92,24 +121,23 @@
 }
 
 .group__desc {
-display: flex;
-align-items: center;
-padding-left: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
 }
 
-.desc__title {
+/* .desc__title {
 
-}
+} */
 
 .content__description {
     width: 324px;
-    /* margin-left: 30px; */
     animation: fadeIn 1s;
 
 }
 
 .description__img {
-    width: 324px;
+    /* width: 324px; */
     height: 150px;
 }
 
@@ -118,11 +146,17 @@ padding-left: 10px;
     height: 100%;
 }
 
+.description__underImg {
+    background-color: #1b1e226e;
+    padding: 10px;
+    border-bottom: 2px;
+}
+
 .description__snippet {
     font-size: 14px;
     line-height: 18px;
-    padding-right: 16px;
-    padding-top: 10px;
+    /* padding-right: 16px;
+    padding-top: 10px; */
 }
 
 .description__countRating {

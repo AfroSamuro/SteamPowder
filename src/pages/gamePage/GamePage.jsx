@@ -84,8 +84,12 @@ export default function GamePage() {
                                 <Carousel screens={screenshots} />
                             </div>
                         </div>
-                        <div className='content__videos'>
-                            {videos.items.map(video => <a
+                        <div className='content__youtube'>
+                            <div className='content__youtubeHeader'>
+                                <p>REVIEWS:</p>
+                            </div>
+                            <div className='content__videos'>
+                                {videos.items.map(video => <a
                                 className='videos__content'
                                 href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
                                 target='_blank'>
@@ -96,19 +100,26 @@ export default function GamePage() {
                                 </div>
                             </a>
                             )}
+                            </div>
                         </div>
-                        <div className='content__vkGroups'>
-                            {vkGroups.map(group => <a
-                                className='vkGroups__group'
-                                href={`https://vk.com/${group.screen_name}`}
-                                target='_blank'>
-                                <img className='group__img' src={group.photo_100} alt='vk__group' />
-                                <div className='group__desc'>
-                                    <p className='desc__title'>{group.name}</p>
-                                </div>
-                            </a>
-                            )}
+                        <div className='content__socialMedia'>
+                            <div className='content__social'>
+                                <p>SOCIAL GROUPS:</p>
+                            </div>
+                            <div className='content__vkGroups'>
+                                {vkGroups.map(group => <a
+                                    className='vkGroups__group'
+                                    href={`https://vk.com/${group.screen_name}`}
+                                    target='_blank'>
+                                    <img className='group__img' src={group.photo_100} alt='vk__group' />
+                                    <div className='group__desc'>
+                                        <p className='desc__title'>{group.name}</p>
+                                    </div>
+                                </a>
+                                )}
+                            </div>
                         </div>
+
                     </div>
 
 
@@ -116,22 +127,27 @@ export default function GamePage() {
                         <div className='description__img'>
                             {<img src={image} alt="logo" className='img__logo' />}
                         </div>
-                        <div className='description__snippet'>
-                            <p>{description}</p>
-                        </div>
-                        <div className='description__countRating'>
 
-                            <div className='countRating__rating'>
-                                <img className='rating__logo' src="https://d23gn3985hkc32.cloudfront.net/wp-content/uploads/2020/12/597919-metacritic-review-bombing.jpg" alt="metaLogo" />
-                                <p className='rating__number'>{metacritic ? metacritic.score : "?"}</p>
+                        <div className='description__underImg'>
+                            <div className='description__snippet'>
+                                <p>{description}</p>
                             </div>
-                            <div className='countRating__count'>
-                                <p className='count__text'>Online:</p>
-                                <p className='count__number'>{count}</p>
+
+                            <div className='description__countRating'>
+
+                                <div className='countRating__rating'>
+                                    <img className='rating__logo' src="https://d23gn3985hkc32.cloudfront.net/wp-content/uploads/2020/12/597919-metacritic-review-bombing.jpg" alt="metaLogo" />
+                                    <p className='rating__number'>{metacritic ? metacritic.score : "?"}</p>
+                                </div>
+                                <div className='countRating__count'>
+                                    <p className='count__text'>Online:</p>
+                                    <p className='count__number'>{count}</p>
+                                </div>
+
                             </div>
+                            <Categorie categories={categories} />
+                            <Platforms platforms={platforms} />
                         </div>
-                        <Categorie categories={categories} />
-                        <Platforms platforms={platforms} />
                     </div>
                 </div>
             </div>
